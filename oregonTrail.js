@@ -19,6 +19,10 @@
             if (Math.random() > .5) {
                 this.food += 100;
             }
+            // check after hunt if they now have enough food to be healthy
+            if (this.food >= 20) {
+                this.isHealthy = true;
+            }
             return this.food;
         };
         //when implemented, we should check to see if the traveler has a food supply of 20
@@ -28,9 +32,9 @@
         Traveler.prototype.eat = function () {
             if (this.food >= 20) {
                 this.food -= 20;
-                if (this.food < 20) {
-                    this.isHealthy = false;
-                }
+            }
+            else {
+                this.isHealthy = false;
             }
             return this.isHealthy;
         };

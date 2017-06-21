@@ -77,6 +77,11 @@ console.log("Start food: " + this.food);
             if (Math.random() > .5) {
                 this.food += 100;
             }
+            
+            // check after hunt if they now have enough food to be healthy
+            if (this.food >= 20) {
+                this.isHealthy = true;
+            }
 
             return this.food;
         }
@@ -88,9 +93,8 @@ console.log("Start food: " + this.food);
         eat() {
             if (this.food >= 20) {
                 this.food -= 20;
-                if (this.food < 20) {
-                    this.isHealthy = false;
-                }
+            } else {
+                this.isHealthy = false;
             }
 
             return this.isHealthy;
@@ -173,6 +177,7 @@ console.log("Start food: " + this.food);
     * Create an array of your travelers, loop over the array of travelers and give each traveler a 50% chance
     * of attempting to be being added to the wagon using the wagons addPassenger method.
     */
+
     myPassengers = [passenger1, passenger2, passenger3, passenger4, passenger5];
     for (let i=0; i<myPassengers.length; i++) {
         if (Math.random() > .5) {
